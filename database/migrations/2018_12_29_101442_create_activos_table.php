@@ -21,11 +21,11 @@ class CreateActivosTable extends Migration
             $table->string('nombre');
             $table->integer('unidad');
             $table->float('costo_unitario');
-            $table->integer('dimencion_D');
-            $table->integer('dimencion_I');
-            $table->integer('dimencion_C');
-            $table->integer('dimencion_A');
-            $table->integer('dimencion_NR');
+            $table->integer('dimension_D');
+            $table->integer('dimension_I');
+            $table->integer('dimension_C');
+            $table->integer('dimension_A');
+            $table->integer('dimension_NR');
 
             $table->foreign('capa_id')->references('id')->on('capas')->onDelete('cascade');
             $table->timestamps();
