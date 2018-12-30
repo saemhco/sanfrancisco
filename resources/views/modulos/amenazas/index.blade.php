@@ -3,7 +3,7 @@
 @section('activacion')
 @endsection
 @section('estilos')  
-	<link rel="stylesheet" type=/sweetalert/sweetalert2.min.css>
+	<link rel="stylesheet" type=/sweetalert/sweetalert2.min.css">
 	<style type="text/css">
 		.acciones{
 			font-size: 15px;
@@ -30,31 +30,30 @@
 		<div class="pull-right tableTools-container"></div>
 	</div>
 		<div class="table-header">
-			<button class="btn btn-xs btn-success"><i class="fa fa-plus"></i> Nueva Amenaza</button>
-			
+			<a href="{{ route('ame.new') }}" class="btn btn-xs btn-success"><i class="fa fa-plus"></i> Nuevo</a>			
 		</div>
 		<div class="table-responsive">
 			<table id="dynamic-table" class="table table-striped table-bordered table-hover table-condensed">
 				<thead>
-					<tr>
-						<th class="center" class="hidden-480" title="No repudio">Acciones</th>
+					<tr>						
 						<th class="center" class="hidden-480">Tipo</th>
 						<th class="center">Codigo</th>
 						<th class="center">Amenaza</th>
-						<th class="center">Desripcion</th>						
+						<th class="center">Desripcion</th>	
+						<th class="center" class="hidden-480" title="No repudio">Acciones</th>					
 					</tr>
 				</thead>
 				<tbody>
 					@foreach($amenazas as $k)
 					<tr align="center">
-						<td>
-							<a href="{{ route('ame.edit',$k->id) }}" title="editar"><i class="ace-icon fa fa-edit acciones"></i></a>
-							<a href="#" title="Eliminar"><i class="ace-icon fa fa-trash acciones accion-delete"></i></a>
-						</td>
 						<td>{{$k->tipo}}</td>
 						<td>{{$k->codigo}}</td>
 						<td>{{$k->nombre}}</td>
 						<td>{{$k->descripcion}}</td>
+						<td>
+							<a href="{{ route('ame.edit',$k->id) }}" title="editar"><i class="ace-icon fa fa-edit acciones"></i></a>
+							<a href="#" title="Eliminar"><i class="ace-icon fa fa-trash acciones accion-delete" data-id='{{ $k->id }}'></i></a>
+						</td>					
 						
 					</tr>
 					@endforeach
@@ -110,7 +109,7 @@
 					
 		var button = $(this);
 		var id = button.data('id');
-		alert(id);
+		//alert(id);
 		    //button.prop("disabled",true);
 		            //----------------
 		            swal({

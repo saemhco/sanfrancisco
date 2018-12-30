@@ -61,8 +61,8 @@ Route::group(['prefix' => 'activos'],function(){
 Route::group(['prefix' => 'amenazas'],function(){
 	Route::get('/','modulos\amenaza\amenazaController@index')->name('ame.index');
 	Route::get('edit/{id}','modulos\amenaza\amenazaController@edit')->name('ame.edit');
-	Route::put('update/{id}','modulos\amenaza\amenazaController@update')->name('ame.update');});
-	Route::delete('delete/{id}','modulos\amenaza\amenazaController@destroy')->name('rsu2.mp.delete');
-
-
-
+	Route::put('update/{id}','modulos\amenaza\amenazaController@update')->name('ame.update');
+	Route::delete('delete/{id}','modulos\amenaza\amenazaController@destroy')->name('ame.delete');
+	Route::get('nuevo','modulos\amenaza\amenazaController@create')->name('ame.new');
+	Route::post('store','modulos\amenaza\amenazaController@store')->name('ame.store');
+});

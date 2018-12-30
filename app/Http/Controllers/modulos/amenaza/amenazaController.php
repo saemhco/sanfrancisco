@@ -38,7 +38,11 @@ class amenazaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $amenaza=new Amenaza;
+        $input = $request->all();
+        $amenaza->fill($input)->save();
+
+        return redirect()->route('ame.index')->with('verde','Se registró correctamente: '.$request->get('nombre'));
     }
 
     /**
