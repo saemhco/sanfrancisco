@@ -15,7 +15,6 @@ class amenazaController extends Controller
      */
     public function index()
     {
-        return "Hola Mundi";
         $amenazas=Amenaza::get();
         return view('modulos.amenazas.index', compact('amenazas'));
     }
