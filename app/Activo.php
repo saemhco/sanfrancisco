@@ -8,7 +8,7 @@ class Activo extends Model
 {
     protected $table = 'activos';
     protected $fillable = [
-        'n', 'codigo', 'capa_id', 'nombre', 'unidad', 'costo_unitario', 'dimencion_D', 'dimencion_I', 'dimencion_C', 'dimencion_A', 'dimencion_NR'
+        'n', 'codigo', 'capa_id', 'nombre', 'unidad', 'costo_unitario', 'dimension_D', 'dimension_I', 'dimension_C', 'dimension_A', 'dimension_NR'
     ];
     public function capa(){
         return $this->belongsTo(Capa::class, 'capa_id');

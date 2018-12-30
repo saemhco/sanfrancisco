@@ -59,8 +59,8 @@ class amenazaController extends Controller
      */
     public function edit($id)
     {
-        //$amenaza=Amenaza::find($id);
-        //return view('modulos.amenazas.editar', compact('amenaza'));
+        $amenaza=Amenaza::find($id);
+        return view('modulos.amenazas.editar', compact('amenaza'));
     }
 
     /**
@@ -72,7 +72,11 @@ class amenazaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $amenaza=Amenaza::find($id);
+        $input = $request->all();
+        $amenaza->fill($input)->save();
+
+        return redirect()->route('ame.index');
     }
 
     /**

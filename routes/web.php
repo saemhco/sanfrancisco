@@ -58,7 +58,8 @@ Route::group(['prefix' => 'activos'],function(){
 //Modulo - Usuarios
 Route::group(['prefix' => 'amenazas'],function(){
 	Route::get('/','modulos\amenaza\amenazaController@index')->name('ame.index');
-});
+	Route::get('edit/{id}','modulos\amenaza\amenazaController@edit')->name('ame.edit');
+	Route::put('update/{id}','modulos\amenaza\amenazaController@update')->name('ame.update');});
 
 
 
