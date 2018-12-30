@@ -4,6 +4,14 @@
 @section('estilos')  
 {!!Html::style('plantilla/css/select2.min.css')!!}
 @endsection
+@section('ruta')
+<ul class="breadcrumb">
+	<i class="ace-icon fa fa-leaf"></i>
+	<li class="active">Relación de Amenazas</li>
+	<li class=""><a href="{{ route('ame.index') }}">Amenazas</a></li>
+	<li class="">editar</li>
+</ul>
+@endsection
 
 @section('contenido')
 

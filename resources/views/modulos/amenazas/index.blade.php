@@ -3,6 +3,7 @@
 @section('activacion')
 @endsection
 @section('estilos')  
+	<link rel="stylesheet" type=/sweetalert/sweetalert2.min.css>
 	<style type="text/css">
 		.acciones{
 			font-size: 15px;
@@ -47,8 +48,8 @@
 					@foreach($amenazas as $k)
 					<tr align="center">
 						<td>
-							<a href="{{ route('ame.edit',$k->id) }}"" title="editar"><i class="ace-icon fa fa-edit acciones"></i></a>
-							<a href="#" title="Eliminar"><i class="ace-icon fa fa-trash acciones"></i></a>
+							<a href="{{ route('ame.edit',$k->id) }}" title="editar"><i class="ace-icon fa fa-edit acciones"></i></a>
+							<a href="#" title="Eliminar"><i class="ace-icon fa fa-trash acciones accion-delete"></i></a>
 						</td>
 						<td>{{$k->tipo}}</td>
 						<td>{{$k->codigo}}</td>
@@ -105,6 +106,49 @@
 				} );
 	myTable.buttons().container().appendTo( $('.tableTools-container') );
 
+	$(document).on('click', '.accion-delete', function(event) {
+					
+		var button = $(this);
+		var id = button.data('id');
+		alert(id);
+		    //button.prop("disabled",true);
+		            //----------------
+		            swal({
+						  title: '¿Está seguro que desea eliminar?',
+						  text: 'El dato se eliminará permanentemente',
+						  type: 'warning',
+						  showCancelButton: true,
+						  confirmButtonColor: '#3085d6',
+						  cancelButtonColor: '#d33',
+						  confirmButtonText: 'Si, Eliminar',
+						  cancelButtonText: 'No, cancelar',
+						  confirmButtonClass: 'btn btn-success',
+						  cancelButtonClass: 'btn btn-danger',
+						  buttonsStyling: false,
+						  reverseButtons: true
+						}).then((result) => {
+							if(result.value){
+								 	$.ajax({ 
+					               url: '/amenazas/delete/'+id,
+					               type: 'DELETE',
+					               data: {_token: '{{csrf_token()}}' },
+					               success: function (data) {
+					                    swal(
+											      '¡Eliminado!',
+											      'El dato se ha eliminado',
+											      'success'
+											    );
+					                    location.reload();
+					               },
+					               
+					               error: function(error){
+				                   var r = error.responseJSON.message;
+				                   swal("Error",r, "error");
+			                   }
+						         });
+							} 
+						})
+        		});
 
 </script>
 

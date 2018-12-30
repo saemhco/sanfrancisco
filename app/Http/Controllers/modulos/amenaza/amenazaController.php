@@ -5,6 +5,7 @@ namespace App\Http\Controllers\modulos\amenaza;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Amenaza;
+use DB;
 
 class amenazaController extends Controller
 {
@@ -87,6 +88,6 @@ class amenazaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Amenaza::destroy($id);
     }
 }
