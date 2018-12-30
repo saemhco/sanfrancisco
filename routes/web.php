@@ -54,6 +54,10 @@ Route::group(['prefix' => 'activos'],function(){
 		Route::get('nuevo','modulos\activo\activoController@store')->name('act.reg.nuevo');
 		Route::get('edit','modulos\activo\activoController@edit')->name('act.reg.edit');
 });
+//Modulo - Usuarios
+Route::group(['prefix' => 'amenazas'],function(){
+	Route::get('index','modulos\amenaza\amenazaController@index')->name('ame.index');
+});
 
 
 
