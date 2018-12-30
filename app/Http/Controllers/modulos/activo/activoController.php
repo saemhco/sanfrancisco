@@ -5,6 +5,8 @@ namespace App\Http\Controllers\modulos\activo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Activo;
+use App\Capa;
+use DB;
 
 class activoController extends Controller
 {
@@ -65,7 +67,9 @@ class activoController extends Controller
     public function edit($id)
     {
         $activo=Activo::find($id);
-        return view('modulos.activos.seguimientos.editar', compact('activo'));
+        $capas=Capa::select(DB::raw('CONCAT(capa," - ",categoria) AS nombre'),'id')->pluck('nombre','id');
+
+        return view('modulos.activos.identificacion.editar', compact('activo','capas'));
     }
 
     /**
@@ -77,7 +81,12 @@ class activoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $activo=Activo::find($id);
+        $input = $request->all();
+        $activo->fill($input)->save();
+
+        return redirect()->route('act.reg.index');
+
     }
 
     /**

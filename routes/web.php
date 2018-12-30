@@ -52,7 +52,8 @@ Route::group(['prefix' => 'usuario'],function(){
 Route::group(['prefix' => 'activos'],function(){
 		Route::get('identificacion','modulos\activo\activoController@index')->name('act.reg.index');
 		Route::get('nuevo','modulos\activo\activoController@store')->name('act.reg.nuevo');
-		Route::get('edit','modulos\activo\activoController@edit')->name('act.reg.edit');
+		Route::get('edit/{id}','modulos\activo\activoController@edit')->name('act.reg.edit');
+		Route::put('update/{id}','modulos\activo\activoController@update')->name('act.reg.update');
 });
 
 

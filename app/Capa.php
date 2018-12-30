@@ -8,7 +8,7 @@ class Capa extends Model
 {
     protected $table = 'capas';
     protected $fillable = [
-        'capa', 'descripcion', 'descripcion'
+        'capa', 'descripcion', 'categoria'
     ];
     public function activos(){
         return $this->hasMany('App\Activo');
