@@ -51,44 +51,47 @@
 											{!!Form::number('unidad', null, ['class'=> 'col-xs-10 col-sm-10 col-sm-5', 'placeholder'=>'escribir aquí..'])!!}
 										</div>
 									</div>
-									<div align="center">
-										<img src="{{url('plantilla/images/gallery/tabla-activos.jpeg')}}" align="center">
-									</div>
+									
 									<div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Costo Unitario (S/) </label>
 										<div class="col-sm-9">
 											{!!Form::number('costo_unitario', null, ['class'=> 'col-xs-10 col-sm-10 col-sm-5',  'step'=>'0.25', 'placeholder'=>'escribir aquí..'])!!}
 										</div>
 									</div>
-									
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Leyenda </label>
+										<div class="col-sm-9">
+											<img src="{{url('plantilla/images/gallery/tabla-activos.jpeg')}}" align="center" height="150px;">
+										</div>
+									</div>
 									<div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Disponibilidad [D] </label>
 										<div class="col-sm-9">
-											{!!Form::number('dimension_D', null, ['class'=> 'col-xs-10 col-sm-10 col-sm-5', 'placeholder'=>'escribir aquí..'])!!}
+											{!!Form::number('dimension_D', null, ['class'=> 'col-xs-10 col-sm-10 col-sm-5', 'placeholder'=>'escribir aquí..', 'min'=>'0', 'max'=>'10'])!!}
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Integridad [I] </label>
 										<div class="col-sm-9">
-											{!!Form::number('dimension_I', null, ['class'=> 'col-xs-10 col-sm-10 col-sm-5', 'placeholder'=>'escribir aquí..'])!!}
+											{!!Form::number('dimension_I', null, ['class'=> 'col-xs-10 col-sm-10 col-sm-5', 'placeholder'=>'escribir aquí..','min'=>'0', 'max'=>'10'])!!}
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Confidencialidad [C] </label>
 										<div class="col-sm-9">
-											{!!Form::number('dimension_C', null, ['class'=> 'col-xs-10 col-sm-10 col-sm-5', 'placeholder'=>'escribir aquí..'])!!}
+											{!!Form::number('dimension_C', null, ['class'=> 'col-xs-10 col-sm-10 col-sm-5', 'placeholder'=>'escribir aquí..','min'=>'0', 'max'=>'10'])!!}
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Autenticidad [A] </label>
 										<div class="col-sm-9">
-											{!!Form::number('dimension_A', null, ['class'=> 'col-xs-10 col-sm-10 col-sm-5', 'placeholder'=>'escribir aquí..'])!!}
+											{!!Form::number('dimension_A', null, ['class'=> 'col-xs-10 col-sm-10 col-sm-5', 'placeholder'=>'escribir aquí..','min'=>'0', 'max'=>'10'])!!}
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> No Repudio [N_R] </label>
 										<div class="col-sm-9">
-											{!!Form::number('dimension_NR', null, ['class'=> 'col-xs-10 col-sm-10 col-sm-5', 'placeholder'=>'escribir aquí..'])!!}
+											{!!Form::number('dimension_NR', null, ['class'=> 'col-xs-10 col-sm-10 col-sm-5', 'placeholder'=>'escribir aquí..','min'=>'0', 'max'=>'10'])!!}
 										</div>
 									</div>
 									

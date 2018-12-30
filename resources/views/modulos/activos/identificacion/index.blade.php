@@ -27,6 +27,21 @@
 
 @endsection
 @section('contenido')
+<?php 
+function tabla($dato){
+	switch ($dato) {
+		case 0: $msj='Despreciable: Irrelevante a efectos prácticos'; break;
+		case 1: case 2: case 3: $msj='Bajo: Daño menor a la ORG.'; break;
+		case 4: case 5: case 6: $msj='Medio: Daño importante a la ORG.'; break;
+		case 7: case 8: case 9: $msj='Alto: Daño grave a la ORG.'; break;
+		case 10: $msj='Muy alto: Daño muy grave a la ORG.'; break;			
+		default: $msj='Criterio no definido'; break;
+	}
+	return $msj;
+}
+
+
+?>
 <div class="col-xs-12">
 	<div class="clearfix">
 		<div class="pull-right tableTools-container"></div>
@@ -67,11 +82,11 @@
 						<td>{{$k->unidad}}</td>
 						<td>{{$k->costo_unitario}}</td>
 						<td>{{$k->costo_unitario*$k->unidad}}</td>
-						<td>{{$k->dimension_D}}</td>
-						<td>{{$k->dimension_I}}</td>
-						<td>{{$k->dimension_C}}</td>
-						<td>{{$k->dimension_A}}</td>
-						<td>{{$k->dimension_NR}}</td>
+						<td title='{{tabla($k->dimension_D)}}'>{{$k->dimension_D}}</td>
+						<td title='{{tabla($k->dimension_I)}}'>{{$k->dimension_I}}</td>
+						<td title='{{tabla($k->dimension_C)}}'>{{$k->dimension_C}}</td>
+						<td title='{{tabla($k->dimension_A)}}'>{{$k->dimension_A}}</td>
+						<td title='{{tabla($k->dimension_NR)}}'>{{$k->dimension_NR}}</td>
 						<td>
 							<a href="{{ route('act.reg.edit',$k->id) }}" title="editar"><i class="ace-icon fa fa-edit acciones"></i></a>
 							<a href="#" title="Eliminar"><i class="ace-icon fa fa-trash acciones accion-delete" data-id='{{ $k->id }}'></i></a>

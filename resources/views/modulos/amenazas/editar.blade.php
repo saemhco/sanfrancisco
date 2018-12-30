@@ -17,11 +17,12 @@
 
 {!! Form::model($amenaza,['route' => ['ame.update',$amenaza->id], 'method' => 'PUT','id'=>'myform', 'class'=>'form-horizontal form-label-left', 'enctype'=>'multipart/form-data']) !!}
 	{{ csrf_field() }}
-		
+		<br>
 		<div class="form-group">
 			<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Tipo de Amenaza </label>
 			<div class="col-sm-9">
-				{!!Form::text('tipo', null, ['class'=> 'col-xs-10 col-sm-10 col-sm-5', 'placeholder'=>'escribir aquí..'])!!}
+				
+				{!!Form::select('tipo',$array_amenazas,$amenaza->tipo !='' ? $amenaza->tipo : null,['class'=>'col-xs-10 col-sm-10 col-sm-5','placeholder' => 'Seleccione', 'id'=>'select2-id','required'])!!}
 			</div>
 		</div>
 
