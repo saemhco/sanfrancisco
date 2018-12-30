@@ -1,5 +1,5 @@
 @extends('plantilla.usuario')
-@section('titulo','Editar Activo')
+@section('titulo','Nuevo Activo')
 
 @section('estilos')  
 {!!Html::style('plantilla/css/select2.min.css')!!}
@@ -10,18 +10,18 @@
 	<li class="active">Relación de activos</li>
 	<li class="">activos</li>
 	<li class=""><a href="{{ route('act.reg.index') }}">identificación</a></li>
-	<li class="">editar</li>
+	<li class="">nuevo</li>
 </ul>
 
 @endsection
 @section('contenido')
-{!! Form::model($activo,['route' => ['act.reg.update',$activo->id], 'method' => 'PUT','id'=>'myform', 'class'=>'form-horizontal form-label-left', 'enctype'=>'multipart/form-data']) !!}
+{!! Form::open(['route' => 'act.reg.store', 'method' => 'POST','id'=>'myform', 'class'=>'form-horizontal form-label-left']) !!}
 									{{ csrf_field() }}
 									<div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Capa - Categoría </label>
 
 										<div class="col-sm-9">
-											{!!Form::select('capa_id',$capas,$activo->capa_id !='' ? $activo->capa_id : null,['class'=>'col-xs-10 col-sm-10 col-sm-5','placeholder' => 'Seleccione', 'id'=>'select2-id','required'])!!}
+											{!!Form::select('capa_id',$capas, null,['class'=>'col-xs-10 col-sm-10 col-sm-5','placeholder' => 'Seleccione', 'id'=>'select2-id', 'required'])!!}
 										</div>
 									</div>
 
@@ -51,10 +51,13 @@
 											{!!Form::number('unidad', null, ['class'=> 'col-xs-10 col-sm-10 col-sm-5', 'placeholder'=>'escribir aquí..'])!!}
 										</div>
 									</div>
+									<div align="center">
+										<img src="{{url('plantilla/images/gallery/tabla-activos.jpeg')}}" align="center">
+									</div>
 									<div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Costo Unitario (S/) </label>
 										<div class="col-sm-9">
-											{!!Form::number('costo_unitario', null, ['class'=> 'col-xs-10 col-sm-10 col-sm-5', 'step'=>'0.25',   'placeholder'=>'escribir aquí..'])!!}
+											{!!Form::number('costo_unitario', null, ['class'=> 'col-xs-10 col-sm-10 col-sm-5',  'step'=>'0.25', 'placeholder'=>'escribir aquí..'])!!}
 										</div>
 									</div>
 									

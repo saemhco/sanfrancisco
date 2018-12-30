@@ -51,7 +51,8 @@ Route::group(['prefix' => 'usuario'],function(){
 //Modulo - Usuarios
 Route::group(['prefix' => 'activos'],function(){
 		Route::get('identificacion','modulos\activo\activoController@index')->name('act.reg.index');
-		Route::get('nuevo','modulos\activo\activoController@store')->name('act.reg.nuevo');
+		Route::get('nuevo','modulos\activo\activoController@create')->name('act.reg.new');
+		Route::post('store','modulos\activo\activoController@store')->name('act.reg.store');
 		Route::get('edit/{id}','modulos\activo\activoController@edit')->name('act.reg.edit');
 		Route::put('update/{id}','modulos\activo\activoController@update')->name('act.reg.update');
 		Route::delete('delete/{id}','modulos\activo\activoController@destroy')->name('act.reg.delete');

@@ -33,7 +33,7 @@
 	</div>
 
 		<div class="table-header">
-			<button class="btn btn-xs btn-success"><i class="fa fa-plus"></i> Nuevo Activo</button>
+			<a href="{{ route('act.reg.new') }}" class="btn btn-xs btn-success"><i class="fa fa-plus"></i> Nuevo Activo</a>
 			
 		</div>
 		<div class="table-responsive">

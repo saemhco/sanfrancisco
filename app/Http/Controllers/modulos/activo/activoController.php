@@ -21,10 +21,6 @@ class activoController extends Controller
         return view('modulos.activos.identificacion.index', compact('activos'));
     }
 
-    public function seguimiento()
-    {
-        return view('modulos.activos.seguimientos.index');
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -33,7 +29,8 @@ class activoController extends Controller
      */
     public function create()
     {
-        //
+        $capas=Capa::select(DB::raw('CONCAT(capa," - ",categoria) AS nombre'),'id')->pluck('nombre','id');
+        return view('modulos.activos.identificacion.nuevo',compact('capas'));
     }
 
     /**
@@ -44,7 +41,11 @@ class activoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $activo=new Activo;
+        $input = $request->all();
+        $activo->fill($input)->save();
+
+        return redirect()->route('act.reg.index')->with('verde','Se registró un nuevo activo correctamente: '.$request->get('nombre'));
     }
 
     /**
