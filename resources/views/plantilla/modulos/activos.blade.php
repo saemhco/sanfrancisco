@@ -19,7 +19,7 @@
 								</li>
 
 								<li class="">
-									<a href="{{route('act.seg')}}">
+									<a href="#">
 										<i class="menu-icon fa fa-caret-right"></i>
 										Compras
 									</a>

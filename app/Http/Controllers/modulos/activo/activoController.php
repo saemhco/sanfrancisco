@@ -4,7 +4,7 @@ namespace App\Http\Controllers\modulos\activo;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Registro;
+use App\Activo;
 
 class activoController extends Controller
 {
@@ -15,8 +15,8 @@ class activoController extends Controller
      */
     public function index()
     {
-       $katy=Registro::get();
-        return view('modulos.activos.registros.index', compact('katy'));
+        $activos=Activo::get();
+        return view('modulos.activos.identificacion.index', compact('activos'));
     }
 
     public function seguimiento()
@@ -64,7 +64,8 @@ class activoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $activo=Activo::find($id);
+        return view('modulos.activos.seguimientos.editar', compact('activo'));
     }
 
     /**

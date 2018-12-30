@@ -65,7 +65,7 @@ $variable="";
 				<div class="navbar-header pull-left">
 					<a href="#" class="navbar-brand">
 						<small>
-							<img src="{{URL::to('plantilla/images/gallery/unheval-logo.png')}}" height="23px;" style="vertical-align: top;">
+							<img src="{{url('plantilla/images/gallery/logo.jpg')}}" height="23px;" style="vertical-align: top;">
 							Sistema de Análisis de Riesgos
 						</small>
 					</a>
@@ -283,7 +283,7 @@ $variable="";
 					<div class="footer-content">
 						<span class="bigger-120">
 							<span class="blue bolder">COOPERATIVA DE AHORRO Y CRÉDITO SANFRANCISCO LTDA.289</span>
-							- lugar &copy; 2018
+							 &copy; 2018 - 2019
 						</span>
 
 						&nbsp; &nbsp;

@@ -50,9 +50,10 @@ Route::group(['prefix' => 'usuario'],function(){
 
 //Modulo - Usuarios
 Route::group(['prefix' => 'activos'],function(){
-		Route::get('registros','modulos\activo\activoController@index')->name('act.reg.index');
+		Route::get('identificacion','modulos\activo\activoController@index')->name('act.reg.index');
 		Route::get('nuevo','modulos\activo\activoController@store')->name('act.reg.nuevo');
-		Route::get('seguimiento','modulos\activo\activoController@seguimiento')->name('act.seg');
+		Route::get('edit','modulos\activo\activoController@edit')->name('act.reg.edit');
 });
+
 
 
