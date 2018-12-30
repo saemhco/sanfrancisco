@@ -42,6 +42,7 @@
 						<th class="center" class="hidden-480">Categoría</th>
 						<th class="center">Capa</th>
 						<th class="center">codigo</th>
+						<th class="center">N°</th>
 						<th class="center" class="hidden-480">Activo</th>
 						<th class="center" class="hidden-480">UN</th>
 						<th class="center" class="hidden-480" title='Costo Unitario'>CU (S/)</th>						
@@ -60,6 +61,7 @@
 						<td>{{$k->capa->categoria}}</td>
 						<td>{{$k->capa->capa}}</td>
 						<td>{{$k->codigo}}</td>
+						<td>{{$k->n}}</td>
 						<td>{{$k->nombre}}</td>
 						<td>{{$k->unidad}}</td>
 						<td>{{$k->costo_unitario}}</td>
@@ -70,7 +72,7 @@
 						<td>{{$k->dimension_A}}</td>
 						<td>{{$k->dimension_NR}}</td>
 						<td>
-							<a href="{{ route('act.reg.edit') }}"" title="editar"><i class="ace-icon fa fa-edit acciones"></i></a>
+							<a href="{{ route('act.reg.edit',$k->id) }}"" title="editar"><i class="ace-icon fa fa-edit acciones"></i></a>
 							<a href="#" title="Eliminar"><i class="ace-icon fa fa-trash acciones"></i></a>
 						</td>
 					</tr>
