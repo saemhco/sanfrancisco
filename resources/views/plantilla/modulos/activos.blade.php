@@ -1,7 +1,7 @@
 
 						<li class="">
 							<a href="#" class="dropdown-toggle" title="Responsabilidad Social Universitaria">
-								<i class="menu-icon fa fa-leaf" ></i>
+								<i class="menu-icon fa fa-list" ></i>
 								<span class="menu-text"> Activos </span>
 								<b class="arrow fa fa-angle-down"></b>
 							</a>
@@ -13,7 +13,7 @@
 								<li class="">
 									<a href="{{ route('act.reg.index') }}">
 										<i class="menu-icon fa fa-caret-right"></i>
-										Registros
+										Identificación
 									</a>
 									<b class="arrow"></b>
 								</li>
@@ -21,7 +21,7 @@
 								<li class="">
 									<a href="{{route('act.seg')}}">
 										<i class="menu-icon fa fa-caret-right"></i>
-										Seguimiento
+										Compras
 									</a>
 									<b class="arrow"></b>
 								</li>

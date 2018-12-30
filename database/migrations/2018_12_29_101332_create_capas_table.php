@@ -16,7 +16,7 @@ class CreateCapasTable extends Migration
         Schema::create('capas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('capa');
-            $table->string('descripcion');
+            $table->string('descripcion')->nullable();
             $table->string('categoria'); //son 7 
             
             $table->timestamps();

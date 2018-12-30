@@ -502,6 +502,8 @@ class ComposerStaticInit203ce1cd0d79efc691b10dde61d50ee0
     );
 
     public static $classMap = array (
+        'ActivosTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ActivosTableSeeder.php',
+        'AmenazasTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AmenazasTableSeeder.php',
         'App\\Activo' => __DIR__ . '/../..' . '/app/Activo.php',
         'App\\Amenaza' => __DIR__ . '/../..' . '/app/Amenaza.php',
         'App\\Capa' => __DIR__ . '/../..' . '/app/Capa.php',
@@ -581,6 +583,8 @@ class ComposerStaticInit203ce1cd0d79efc691b10dde61d50ee0
         'Barryvdh\\Reflection\\DocBlock\\Tag\\VarTag' => __DIR__ . '/..' . '/barryvdh/reflection-docblock/src/Barryvdh/Reflection/DocBlock/Tag/VarTag.php',
         'Barryvdh\\Reflection\\DocBlock\\Tag\\VersionTag' => __DIR__ . '/..' . '/barryvdh/reflection-docblock/src/Barryvdh/Reflection/DocBlock/Tag/VersionTag.php',
         'Barryvdh\\Reflection\\DocBlock\\Type\\Collection' => __DIR__ . '/..' . '/barryvdh/reflection-docblock/src/Barryvdh/Reflection/DocBlock/Type/Collection.php',
+        'CapasTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CapasTableSeeder.php',
+        'CaracterizacionTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CaracterizacionTableSeeder.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\CarbonPeriod' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonPeriod.php',

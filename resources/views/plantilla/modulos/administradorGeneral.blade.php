@@ -8,7 +8,7 @@
 	</li>
 	<li class="">
 		<a href="#">
-			<i class="menu-icon fa fa-users"></i>
+			<i class="menu-icon fa fa-home"></i>
 			<span class="menu-text"> Oficinas </span>
 		</a>
 		<b class="arrow"></b>

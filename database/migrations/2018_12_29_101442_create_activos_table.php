@@ -19,8 +19,8 @@ class CreateActivosTable extends Migration
             $table->string('codigo');
             $table->integer('capa_id')->unsigned();
             $table->string('nombre');
-            $table->integer('unidad');
-            $table->float('costo_unitario');
+            $table->integer('unidad')->default(0);
+            $table->float('costo_unitario')->default(0);
             $table->integer('dimension_D');
             $table->integer('dimension_I');
             $table->integer('dimension_C');

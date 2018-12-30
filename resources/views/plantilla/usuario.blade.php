@@ -214,20 +214,11 @@ $variable="";
 							@include('plantilla.modulos.administradorGeneral')
 						{{-- Fin ADMINISTRADOR GENERAL --}}
 
-						{{--Mòdulo A --}}
-							@include('plantilla.modulos.a')
-						{{-- FinA--}}
-
-						{{--Mòdulo B--}}
-							@include('plantilla.modulos.b')
-						{{-- FinB--}}
-
-						{{--Mòdulo C--}}
-							@include('plantilla.modulos.c')
-						{{-- Finc--}}
-
-						{{--Mòdulo C--}}
+						
 							@include('plantilla.modulos.activos')
+							@include('plantilla.modulos.amenazas')
+							@include('plantilla.modulos.caracterizacion')
+							@include('plantilla.modulos.mapa_de_riesgo')
 						{{-- Finc--}}
 				</ul>
 

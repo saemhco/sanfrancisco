@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'ActivosTableSeeder' => $baseDir . '/database/seeds/ActivosTableSeeder.php',
+    'AmenazasTableSeeder' => $baseDir . '/database/seeds/AmenazasTableSeeder.php',
     'App\\Activo' => $baseDir . '/app/Activo.php',
     'App\\Amenaza' => $baseDir . '/app/Amenaza.php',
     'App\\Capa' => $baseDir . '/app/Capa.php',
@@ -85,6 +87,8 @@ return array(
     'Barryvdh\\Reflection\\DocBlock\\Tag\\VarTag' => $vendorDir . '/barryvdh/reflection-docblock/src/Barryvdh/Reflection/DocBlock/Tag/VarTag.php',
     'Barryvdh\\Reflection\\DocBlock\\Tag\\VersionTag' => $vendorDir . '/barryvdh/reflection-docblock/src/Barryvdh/Reflection/DocBlock/Tag/VersionTag.php',
     'Barryvdh\\Reflection\\DocBlock\\Type\\Collection' => $vendorDir . '/barryvdh/reflection-docblock/src/Barryvdh/Reflection/DocBlock/Type/Collection.php',
+    'CapasTableSeeder' => $baseDir . '/database/seeds/CapasTableSeeder.php',
+    'CaracterizacionTableSeeder' => $baseDir . '/database/seeds/CaracterizacionTableSeeder.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
     'Carbon\\CarbonPeriod' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonPeriod.php',
