@@ -74,7 +74,7 @@
 						<td>{{$k->dimension_NR}}</td>
 						<td>
 							<a href="{{ route('act.reg.edit',$k->id) }}" title="editar"><i class="ace-icon fa fa-edit acciones"></i></a>
-							<a href="#" title="Eliminar"><i class="ace-icon fa fa-trash acciones accion-delete"></i></a>
+							<a href="#" title="Eliminar"><i class="ace-icon fa fa-trash acciones accion-delete" data-id='{{ $k->id }}'></i></a>
 						</td>
 					</tr>
 					@endforeach
@@ -130,6 +130,7 @@
 					
 	    		var button = $(this);
 		        var id = button.data('id');
+		        //alert(id);
 		            //button.prop("disabled",true);
 		            //----------------
 		            swal({
