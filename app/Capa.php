@@ -10,8 +10,7 @@ class Capa extends Model
     protected $fillable = [
         'capa', 'descripcion', 'descripcion'
     ];
-    public function activos()
-    {
-        return $this->hasMany('App\Activos');
-    }   //todo esto indica que una CAPA, pude tener varios Activos
+    public function activos(){
+        return $this->hasMany('App\Activo');
+    }   //la CAPA, pude tener varios Activos
 }
