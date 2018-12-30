@@ -54,6 +54,7 @@ Route::group(['prefix' => 'activos'],function(){
 		Route::get('nuevo','modulos\activo\activoController@store')->name('act.reg.nuevo');
 		Route::get('edit/{id}','modulos\activo\activoController@edit')->name('act.reg.edit');
 		Route::put('update/{id}','modulos\activo\activoController@update')->name('act.reg.update');
+		Route::delete('delete/{id}','modulos\activo\activoController@destroy')->name('rsu.mp.delete');
 });
 //Modulo - Usuarios
 Route::group(['prefix' => 'amenazas'],function(){

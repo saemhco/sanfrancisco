@@ -85,7 +85,7 @@ class activoController extends Controller
         $input = $request->all();
         $activo->fill($input)->save();
 
-        return redirect()->route('act.reg.index');
+        return redirect()->route('act.reg.index')->with('verde','Se actualizó correctamente');
 
     }
 
@@ -97,6 +97,6 @@ class activoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Activo::destroy($id);
     }
 }

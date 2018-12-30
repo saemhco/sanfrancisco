@@ -4,9 +4,18 @@
 @section('estilos')  
 {!!Html::style('plantilla/css/select2.min.css')!!}
 @endsection
+@section('ruta')
+<ul class="breadcrumb">
+	<i class="ace-icon fa fa-leaf"></i>
+	<li class="active">Relación de activos</li>
+	<li class="">activos</li>
+	<li class=""><a href="{{ route('act.reg.index') }}">identificación</a></li>
+	<li class="">editar</li>
+</ul>
 
+@endsection
 @section('contenido')
-
+<h3 align="center">Actualizar Activo</h3><br>
 {!! Form::model($activo,['route' => ['act.reg.update',$activo->id], 'method' => 'PUT','id'=>'myform', 'class'=>'form-horizontal form-label-left', 'enctype'=>'multipart/form-data']) !!}
 									{{ csrf_field() }}
 									<div class="form-group">

@@ -3,6 +3,7 @@
 @section('activacion')
 @endsection
 @section('estilos')  
+	<link rel="stylesheet" type=/sweetalert/sweetalert2.min.css">
 	<style type="text/css">
 		.acciones{
 			font-size: 15px;
@@ -72,8 +73,8 @@
 						<td>{{$k->dimension_A}}</td>
 						<td>{{$k->dimension_NR}}</td>
 						<td>
-							<a href="{{ route('act.reg.edit',$k->id) }}"" title="editar"><i class="ace-icon fa fa-edit acciones"></i></a>
-							<a href="#" title="Eliminar"><i class="ace-icon fa fa-trash acciones"></i></a>
+							<a href="{{ route('act.reg.edit',$k->id) }}" title="editar"><i class="ace-icon fa fa-edit acciones"></i></a>
+							<a href="#" title="Eliminar"><i class="ace-icon fa fa-trash acciones accion-delete"></i></a>
 						</td>
 					</tr>
 					@endforeach
@@ -94,6 +95,8 @@
 		{!!Html::script('/plantilla/js/buttons.print.min.js')!!}
 		{!!Html::script('/plantilla/js/buttons.colVis.min.js')!!}
 		{!!Html::script('/plantilla/js/dataTables.select.min.js')!!}
+		{!!Html::script('/sweetalert/sweetalert2.all.js')!!}
+		{!!Html::script('/sweetalert/core.js')!!}
 <script type="text/javascript">
 	var myTable=$('#dynamic-table').DataTable( {     
 		"language":{"url":'{!! asset('/plantilla/js/latino.json') !!}'},
@@ -123,6 +126,48 @@
 				} );
 	myTable.buttons().container().appendTo( $('.tableTools-container') );
 
+	$(document).on('click', '.accion-delete', function(event) {
+					
+	    		var button = $(this);
+		        var id = button.data('id');
+		            //button.prop("disabled",true);
+		            //----------------
+		            swal({
+						  title: '¿Está seguro que desea eliminar?',
+						  text: 'El activo se eliminará permanentemente',
+						  type: 'warning',
+						  showCancelButton: true,
+						  confirmButtonColor: '#3085d6',
+						  cancelButtonColor: '#d33',
+						  confirmButtonText: 'Si, Eliminar',
+						  cancelButtonText: 'No, cancelar',
+						  confirmButtonClass: 'btn btn-success',
+						  cancelButtonClass: 'btn btn-danger',
+						  buttonsStyling: false,
+						  reverseButtons: true
+						}).then((result) => {
+							if(result.value){
+								 	$.ajax({ 
+					               url: '/activos/delete/'+id,
+					               type: 'DELETE',
+					               data: {_token: '{{csrf_token()}}' },
+					               success: function (data) {
+					                    swal(
+											      '¡Eliminado!',
+											      'El Activo se ha eliminado',
+											      'success'
+											    );
+					                    location.reload();
+					               },
+					               
+					               error: function(error){
+				                   var r = error.responseJSON.message;
+				                   swal("Error",r, "error");
+			                   }
+						         });
+							} 
+						})
+        		});
 
 </script>
 
