@@ -27,7 +27,10 @@ class caracterizacionController extends Controller
      */
     public function create()
     {
-        //
+        $array_amenazas=$this->amenazas();
+        $activos=Activo::pluck('nombre','id');
+        $amenazas=Amenaza::all();
+        return view('modulos.caracterizacion.nuevo', compact('amenazas','array_amenazas','activos'));
     }
 
     /**
@@ -38,7 +41,11 @@ class caracterizacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $amenaza=new Amenaza;
+        $input = $request->all();
+        $amenaza->fill($input)->save();
+
+        return redirect()->route('caract.index')->with('verde','Se registró correctamente: '.$request->get('nombre'));
     }
 
     /**

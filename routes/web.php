@@ -71,8 +71,9 @@ Route::group(['prefix' => 'caracterizacion'],function(){
 		Route::get('/','modulos\caracterizacion\caracterizacionController@index')->name('caract.index');
 		Route::get('vermas/{id}','modulos\caracterizacion\caracterizacionController@show')->name('caract.show');
 		
-		Route::get('nuevo','modulos\activo\activoController@create')->name('act.reg.new');
-		Route::post('store','modulos\activo\activoController@store')->name('act.reg.store');
+		Route::get('nuevo','modulos\caracterizacion\caracterizacionController@create')->name('caract.new');
+		Route::post('store','modulos\caracterizacion\caracterizacionController@store')->name('caract.store');
+
 		Route::get('edit/{id}','modulos\caracterizacion\caracterizacionController@edit')->name('caract.edit');
 		Route::put('update/{id}','modulos\caracterizacion\caracterizacionController@update')->name('caract.update');
 		Route::delete('delete/{id}','modulos\activo\activoController@destroy')->name('act.reg.delete');

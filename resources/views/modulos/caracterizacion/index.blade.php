@@ -56,7 +56,7 @@ function promedio($id){
 	</div>
 
 		<div class="table-header">
-			<a href="{{ route('act.reg.new') }}" class="btn btn-xs btn-success"><i class="fa fa-plus"></i> Nuevo </a>
+			<a href="{{ route('caract.new') }}" class="btn btn-xs btn-success"><i class="fa fa-plus"></i> Nuevo </a>
 			
 		</div>
 		<div class="table-responsive">

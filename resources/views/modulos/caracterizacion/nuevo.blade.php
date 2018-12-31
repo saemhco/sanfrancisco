@@ -1,5 +1,5 @@
 @extends('plantilla.usuario')
-@section('titulo','Mapa de Riezgos')
+@section('titulo','Caracterización')
 
 @section('estilos')  
 {!!Html::style('plantilla/css/select2.min.css')!!}
@@ -8,20 +8,19 @@
 <ul class="breadcrumb">
 	<i class="ace-icon fa fa-leaf"></i>
 	<li class="active"><a href="{{ route('caract.index') }}">Caracterización</a></li>
-	<li class="">editar</li>
+	<li class="">nuevo</li>
 </ul>
+
 @endsection
-
 @section('contenido')
-
-{!! Form::model($activo,['route' => ['caract.update',$activo->id], 'method' => 'PUT','id'=>'myform', 'class'=>'form-horizontal form-label-left']) !!}
-	{{ csrf_field() }}
+{!! Form::open(['route' => 'caract.store', 'method' => 'POST','id'=>'myform', 'class'=>'form-horizontal form-label-left']) !!}
+									{{ csrf_field() }}
 		<br>
 		
 		<div class="form-group">
 			<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Activo </label>
 			<div class="col-sm-9">
-				{!!Form::text('activo',$activo->nombre , ['class'=> 'col-xs-10 col-sm-10 col-sm-5', 'disabled'=>'true'])!!}
+				{!!Form::select('activo',$activos,['class'=> 'col-xs-10 col-sm-10 col-sm-5', 'disabled'=>'false', 'id'=>'select2-id','required'])!!}
 			</div>
 		</div>
 		<table id="dynamic-table" class="table table-striped table-bordered table-hover table-condensed">
@@ -49,34 +48,25 @@
 						<td align="center">{{$k->codigo}}</td>
 						<td>{{$k->nombre}}</td>
 						<td>{{$k->descripcion}}</td>
-						<?php
-							$buscar=\App\Caracterizacion::where('activo_id',$activo->id)->where('amenaza_id',$k->id)->first();
 						
-							if($buscar!=''){
-								$checked='checked';
-							} else{
-								$checked='-';
-							}
-							
-						?>
 						<td class="center">
 							<label class="block">
-								<input name="amenazas[]" type="checkbox" class="ace input-lg" {{$checked}} value="{{$k->id}}">
+								<input name="amenazas[]" type="checkbox" class="ace input-lg" value="{{$k->id}}">
 								<span class="lbl bigger-120"></span>
 							</label>
 						</td>
 
-						<td>{!!Form::number('probabilidad[]',$buscar !='' ? $buscar->probabilidad : null ,
+						<td>{!!Form::number('probabilidad[]',null,
 							['class'=> 'form-col-1', 'max'=>'5','min'=>'0', 'step'=>'1'])!!}</td>
-						<td>{!!Form::number('D[]',$buscar !='' ? $buscar->dimension_D : null, 
+						<td>{!!Form::number('D[]',null, 
 							['class'=> 'form-col-1','min'=>'0', 'max'=>'1','step'=>'0.1'])!!}</td>
-						<td>{!!Form::number('I[]',$buscar !='' ? $buscar->dimension_I : null , 
+						<td>{!!Form::number('I[]',null , 
 							['class'=> 'col-1','min'=>'0','max'=>'1', 'step'=>'0.1'])!!}</td>
-						<td>{!!Form::number('C[]',$buscar !='' ? $buscar->dimension_C : null, 
+						<td>{!!Form::number('C[]',null, 
 							['class'=> 'col-1','min'=>'0','max'=>'1', 'step'=>'0.1'])!!}</td>
-						<td>{!!Form::number('A[]',$buscar !='' ? $buscar->dimension_A : null, 
+						<td>{!!Form::number('A[]',null, 
 							['class'=> 'col-1','min'=>'0','max'=>'1', 'step'=>'0.1'])!!}</td>
-						<td>{!!Form::number('NR[]',$buscar !='' ? $buscar->dimension_NR : null, 
+						<td>{!!Form::number('NR[]',null, 
 							['class'=> 'col-1','min'=>'0','max'=>'1', 'step'=>'0.1'])!!}</td>						
 					</tr>
 					@endforeach
@@ -86,14 +76,13 @@
 		<div class="form-group" >
 			<div class="col-sm-6">										
 				<button type="submit" class="width-35 pull-right btn btn-sm btn-primary col-xs-10 col-sm-5">
-				<input type="hidden" name="activo_id" value="{{ $activo->id }}">
+				
 				<i class="ace-icon fa fa-cog" ></i>
-				<span class="bigger-110">Actualizar</span>
+				<span class="bigger-110">Guardar</span>
 				</button>
 			</div>
-		</div>							
-									
-									
+		</div>				
+
 	{!! Form::close() !!}
 @endsection
 @section('script')
