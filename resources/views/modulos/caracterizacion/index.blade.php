@@ -27,27 +27,26 @@
 <?php 
 function promedio($id){
 	$caracterizacion=App\Caracterizacion::where('activo_id',$id)->get();
+	$cont=0; $probabilidad=0;$D=0;$I=0;$C=0;$A=0;$NR=0;
 	if($caracterizacion){
-		$cont=0; $probabilidad=0;$D=0;$I=0;$C=0;$A=0;$NR=0;
-		foreach ($caracterizacion as $i) {
-			$cont++;
-			$probabilidad=$probabilidad+$i->probabilidad;
-			$D=$D+$i->dimension_D;
-			$I=$I+$i->dimension_I;
-			$C=$C+$i->dimension_C;
-			$A=$A+$i->dimension_A;
-			$NR=$NR+$i->dimension_NR;
-		}if($cont==0){$cont++;}
-		$probabilidad=round($probabilidad/$cont);
-		$D=round(100*$D/$cont);
-		$I=round(100*$I/$cont);
-		$C=round(100*$C/$cont);
-		$A=round(100*$A/$cont);
-		$NR=round(100*$NR/$cont);
-		$msj= array('probabilidad' =>$probabilidad,'D' =>$D,'I' =>$I,'A' =>$A,'NR' =>$NR,'C' =>$C);
-	}else{
-		$msj=0;
-	}
+            foreach ($caracterizacion as $i) {
+                $cont++;
+                $probabilidad=$probabilidad+$i->probabilidad;
+                if ($D<$i->dimension_D) {$D=$i->dimension_D;}
+                if ($I<$i->dimension_I) {$I=$i->dimension_I;}
+                if ($C<$i->dimension_C) {$C=$i->dimension_C;}
+                if ($A<$i->dimension_A) {$A=$i->dimension_A;}
+                if ($NR<$i->dimension_NR) {$NR=$i->dimension_NR;}
+                
+            }if($cont==0){$cont++;}
+            $probabilidad=round($probabilidad/$cont);
+            $D=round(100*$D);
+            $I=round(100*$I);
+            $C=round(100*$C);
+            $A=round(100*$A);
+            $NR=round(100*$NR);
+        }
+	$msj= array('probabilidad' =>$probabilidad,'D' =>$D,'I' =>$I,'A' =>$A,'NR' =>$NR,'C' =>$C);
 	return $msj;
 }
 ?>
@@ -94,9 +93,9 @@ function promedio($id){
       <td>{{ promedio($c->id)['A'].'%' }}</td>
       <td>{{ promedio($c->id)['NR'].'%' }}</td>
       <td>
-		<a href="#" title="Ver detalles"><i class="ace-icon fa fa-plus acciones"></i></a>
+		<a href="#" title="Ver detalles" onclick="vermas({{$c->id}});"><i class="ace-icon fa fa-plus acciones"></i></a>
 		<a href="#" title="editar"><i class="ace-icon fa fa-edit acciones"></i></a>
-		<a href="#" title="Eliminar"><i class="ace-icon fa fa-trash acciones accion-delete" data-id='4'></i></a>
+		<a href="#" title="Eliminar" class="accion-delete" data-id='4'><i class="ace-icon fa fa-trash acciones"></i></a>
 	 </td>
     </tr>
   	@endforeach
@@ -105,6 +104,10 @@ function promedio($id){
 		</div>
 </div>
 
+{{-- modal nuevo --}}
+<div id="verMas" class="modal fade" tabindex="-1">
+</div>
+{{-- fin modal --}}
 @endsection
 @section('script')
 		<!-- page specific plugin scripts -->
@@ -139,6 +142,43 @@ function promedio($id){
 					]
 				} );
 	myTable.buttons().container().appendTo( $('.tableTools-container') );
+
+	function vermas($id){
+		//alert($id);
+
+		$.ajax({ 
+			url: '/caracterizacion/vermas/'+$id,
+			success: function (data) {
+				$('#verMas').html(data);
+		        $('#verMas').modal();
+			},
+						               
+			error: function(error){
+				console.log(error);	                  
+			}
+		});
+		
+	}
+				// $(document).on('click', '.acciones-vermas', function(event) {
+		  //        var id = $(this).data('id');
+		  //        	$.ajax({ 
+				// 	            url: '/rsu/mis_proyectos/show-msj/',
+				// 	            type: 'POST',
+				// 	            data: {_token: '{{csrf_token()}}', proyecto_id:id },
+				// 	            success: function (data) {
+				// 	            	//console.log(data);
+				// 	               $('#comentarios_modal').html(data);
+		  //        					$('#comentarios_modal').modal();
+				// 	            },
+					              
+				// 	             error: function(error){
+				//                 var r = error.responseJSON.message;
+				//                 console.log(r);
+			 //                   }
+				// 		});
+		        
+		  //     });
+
 		</script>
 
 @endsection

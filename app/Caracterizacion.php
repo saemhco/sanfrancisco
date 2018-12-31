@@ -14,7 +14,7 @@ class Caracterizacion extends Model
         return $this->belongsTo(Activo::class,'activo_id');
     }   //pude tener varios Activos
 
-    public function amenazas(){
-        return $this->hasMany('App\Amenaza');
+    public function amenaza(){
+        return $this->belongsTo(Amenaza::class,'amenaza_id');
     } 
 }

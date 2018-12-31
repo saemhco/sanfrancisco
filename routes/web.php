@@ -69,6 +69,8 @@ Route::group(['prefix' => 'amenazas'],function(){
 
 Route::group(['prefix' => 'caracterizacion'],function(){
 		Route::get('/','modulos\caracterizacion\caracterizacionController@index')->name('caract.index');
+		Route::get('vermas/{id}','modulos\caracterizacion\caracterizacionController@show')->name('caract.show');
+		
 		Route::get('nuevo','modulos\activo\activoController@create')->name('act.reg.new');
 		Route::post('store','modulos\activo\activoController@store')->name('act.reg.store');
 		Route::get('edit/{id}','modulos\activo\activoController@edit')->name('act.reg.edit');
