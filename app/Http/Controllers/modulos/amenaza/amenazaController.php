@@ -17,7 +17,8 @@ class amenazaController extends Controller
     public function index()
     {
         $amenazas=Amenaza::get();
-        return view('modulos.amenazas.index', compact('amenazas'));
+        $array_amenazas=$this->amenazas();
+        return view('modulos.amenazas.index', compact('amenazas','array_amenazas'));
     }
 
     /**
@@ -27,7 +28,8 @@ class amenazaController extends Controller
      */
     public function create()
     {
-        //
+        $array_amenazas=$this->amenazas();
+        return view('modulos.amenazas.nuevo', compact('amenazas','array_amenazas'));
     }
 
     /**
@@ -65,7 +67,8 @@ class amenazaController extends Controller
     public function edit($id)
     {
         $amenaza=Amenaza::find($id);
-        return view('modulos.amenazas.editar', compact('amenaza'));
+        $array_amenazas=$this->amenazas();
+        return view('modulos.amenazas.editar', compact('amenaza','array_amenazas'));
     }
 
     /**
@@ -93,5 +96,12 @@ class amenazaController extends Controller
     public function destroy($id)
     {
         Amenaza::destroy($id);
+    }
+    public function amenazas(){
+      return array( '1' =>'DESASTRES NATURALES [I]' ,
+                            '2' =>'DE ORIGEN INDUSTRIAL [N]' ,
+                            '3' =>'ERRORES Y FALLOS NO INTENCIONADOS [E]' ,
+                            '4' =>'ATAQUES INTENCIONADOS [A]');
+
     }
 }
