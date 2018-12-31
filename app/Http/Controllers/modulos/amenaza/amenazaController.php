@@ -28,7 +28,8 @@ class amenazaController extends Controller
      */
     public function create()
     {
-        //
+        $array_amenazas=$this->amenazas();
+        return view('modulos.amenazas.nuevo', compact('amenazas','array_amenazas'));
     }
 
     /**
@@ -39,7 +40,11 @@ class amenazaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $amenaza=new Amenaza;
+        $input = $request->all();
+        $amenaza->fill($input)->save();
+
+        return redirect()->route('ame.index')->with('verde','Se registró correctamente: '.$request->get('nombre'));
     }
 
     /**
@@ -61,7 +66,8 @@ class amenazaController extends Controller
      */
     public function edit($id)
     {
-        $amenaza=Amenaza::find($id);$array_amenazas=$this->amenazas();
+        $amenaza=Amenaza::find($id);
+        $array_amenazas=$this->amenazas();
         return view('modulos.amenazas.editar', compact('amenaza','array_amenazas'));
     }
 
