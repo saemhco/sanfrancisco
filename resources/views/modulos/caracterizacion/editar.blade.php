@@ -32,7 +32,13 @@
 						<th class="center">Codigo</th>
 						<th class="center">Amenaza</th>
 						<th class="center">Desripcion</th>	
-						<th class="center" class="hidden-480" title="No repudio">Seleccionar</th>					
+						<th class="center" class="hidden-480" title="No repudio">Seleccionar</th>
+						<th class="center">Probabilidad</th>	
+						<th  class="center">[D]</th>
+				    	<th  class="center">[I]</th>
+				    	<th  class="center">[C]</th>
+				    	<th  class="center">[A]</th>
+				    	<th  class="center">[N_R]</th>			
 					</tr>
 				</thead>
 				<tbody>
@@ -59,7 +65,19 @@
 								<span class="lbl bigger-120"></span>
 							</label>
 						</td>
-						
+
+						<td>{!!Form::number('probabilidad[]',$buscar !='' ? $buscar->probabilidad : null ,
+							['class'=> 'form-col-1', 'max'=>'5','min'=>'0', 'step'=>'1'])!!}</td>
+						<td>{!!Form::number('D[]',$buscar !='' ? $buscar->dimension_D : null, 
+							['class'=> 'form-col-1','min'=>'0', 'max'=>'1','step'=>'0.1'])!!}</td>
+						<td>{!!Form::number('I[]',$buscar !='' ? $buscar->dimension_I : null , 
+							['class'=> 'col-1','min'=>'0','max'=>'1', 'step'=>'0.1'])!!}</td>
+						<td>{!!Form::number('C[]',$buscar !='' ? $buscar->dimension_C : null, 
+							['class'=> 'col-1','min'=>'0','max'=>'1', 'step'=>'0.1'])!!}</td>
+						<td>{!!Form::number('A[]',$buscar !='' ? $buscar->dimension_A : null, 
+							['class'=> 'col-1','min'=>'0','max'=>'1', 'step'=>'0.1'])!!}</td>
+						<td>{!!Form::number('NR[]',$buscar !='' ? $buscar->dimension_NR : null, 
+							['class'=> 'col-1','min'=>'0','max'=>'1', 'step'=>'0.1'])!!}</td>						
 					</tr>
 					@endforeach
 					

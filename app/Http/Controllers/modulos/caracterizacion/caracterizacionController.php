@@ -89,12 +89,17 @@ class caracterizacionController extends Controller
             Caracterizacion::destroy($e->id);
         }
         //Registramos nuevo
-        foreach ($request->get('amenazas') as $value) {
-            $caracterizacion=new Caracterizacion;
-            $caracterizacion->amenaza_id=$value;
-            $caracterizacion->activo_id=$id;
-            $caracterizacion->save();
-
+        foreach ($request->get('amenazas') as $key=> $value) {
+             $caracterizacion=new Caracterizacion;
+             $caracterizacion->amenaza_id=$value;
+             $caracterizacion->activo_id=$id;
+             $caracterizacion->probabilidad=$request->get('probabilidad')[$key];
+             $caracterizacion->dimension_D=$request->get('D')[$key];
+             $caracterizacion->dimension_I=$request->get('I')[$key];
+             $caracterizacion->dimension_C=$request->get('C')[$key];
+             $caracterizacion->dimension_A=$request->get('A')[$key];
+             $caracterizacion->dimension_NR=$request->get('NR')[$key];
+             $caracterizacion->save();
         };
         return redirect()->route('caract.index')->with('verde','Se actualizó correctamente');
         //return $request->all();
