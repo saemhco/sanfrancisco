@@ -81,12 +81,17 @@ class caracterizacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //return $request->get('amenazas');
+        return $request->get('probabilidad');
         
         //Eliminamos (solo en editar)
         $px_eliminar=Caracterizacion::where('activo_id',$id)->get();
         foreach ($px_eliminar as $e) {
             Caracterizacion::destroy($e->id);
+        }
+        //Identificar IDS
+        $id[]= array();
+        foreach ($request->get('D') as $key => $value) {
+            # code...
         }
         //Registramos nuevo
         foreach ($request->get('amenazas') as $key=> $value) {
@@ -101,7 +106,7 @@ class caracterizacionController extends Controller
              $caracterizacion->dimension_NR=$request->get('NR')[$key];
              $caracterizacion->save();
         };
-        return redirect()->route('caract.index')->with('verde','Se actualizó correctamente');
+        //return redirect()->route('caract.index')->with('verde','Se actualizó correctamente');
         //return $request->all();
 
     }
