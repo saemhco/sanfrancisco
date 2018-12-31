@@ -234,13 +234,15 @@ function promedio($id){
 
 {{-- modal nuevo --}}
 <div id="verMas" class="modal fade" tabindex="-1">
-<div class="modal-dialog">
+	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">				
 				<label><b>Leyenda</label>
 			</div>			
-			<div class="modal-body responsive" align="center">
-				<img src="{{url('plantilla/images/gallery/tabla-riesgo.jpeg')}}" align="center" >
+			<div class="modal-body responsive" >
+				<div>
+					<img src="{{url('plantilla/images/gallery/tabla-riesgo.jpeg')}}" width='100%' >
+				</div>				
 			</div>						
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
