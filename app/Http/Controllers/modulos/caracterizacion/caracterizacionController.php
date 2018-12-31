@@ -27,10 +27,7 @@ class caracterizacionController extends Controller
      */
     public function create()
     {
-        $array_amenazas=$this->amenazas();
-        $activos=Activo::pluck('nombre','id');
-        $amenazas=Amenaza::all();
-        return view('modulos.caracterizacion.nuevo', compact('amenazas','array_amenazas','activos'));
+        //
     }
 
     /**
@@ -41,11 +38,7 @@ class caracterizacionController extends Controller
      */
     public function store(Request $request)
     {
-        $amenaza=new Amenaza;
-        $input = $request->all();
-        $amenaza->fill($input)->save();
-
-        return redirect()->route('caract.index')->with('verde','Se registró correctamente: '.$request->get('nombre'));
+        //
     }
 
     /**
@@ -88,32 +81,54 @@ class caracterizacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $request->get('probabilidad');
+        $p= array_filter($request->get('probabilidad'),'strlen');
+        $d= array_filter($request->get('D'),'strlen');
+        $i= array_filter($request->get('I'),'strlen');
+        $c= array_filter($request->get('C'),'strlen');
+        $a= array_filter($request->get('A'),'strlen');
+        $nr= array_filter($request->get('NR'),'strlen');
+        
+        foreach ($p as $key => $value) {$pp[]=$value;}
+        foreach ($d as $key => $value) {$dd[]=$value;}
+        foreach ($i as $key => $value) {$ii[]=$value;}
+        foreach ($c as $key => $value) {$cc[]=$value;}
+        foreach ($a as $key => $value) {$aa[]=$value;}
+        foreach ($nr as $key => $value) {$nnrr[]=$value;}
+        
         
         //Eliminamos (solo en editar)
         $px_eliminar=Caracterizacion::where('activo_id',$id)->get();
         foreach ($px_eliminar as $e) {
             Caracterizacion::destroy($e->id);
         }
-        //Identificar IDS
-        $id[]= array();
+        
         foreach ($request->get('D') as $key => $value) {
-            # code...
+            
         }
         //Registramos nuevo
         foreach ($request->get('amenazas') as $key=> $value) {
              $caracterizacion=new Caracterizacion;
              $caracterizacion->amenaza_id=$value;
              $caracterizacion->activo_id=$id;
-             $caracterizacion->probabilidad=$request->get('probabilidad')[$key];
-             $caracterizacion->dimension_D=$request->get('D')[$key];
-             $caracterizacion->dimension_I=$request->get('I')[$key];
-             $caracterizacion->dimension_C=$request->get('C')[$key];
-             $caracterizacion->dimension_A=$request->get('A')[$key];
-             $caracterizacion->dimension_NR=$request->get('NR')[$key];
+             if(array_key_exists($key,$pp)){
+                 $caracterizacion->probabilidad=$pp[$key];
+             }
+             $caracterizacion->dimension_D=$dd[$key];
+            if(array_key_exists($key,$ii)){
+                $caracterizacion->dimension_I=$ii[$key];
+            }
+            if(array_key_exists($key,$cc)){
+             $caracterizacion->dimension_C=$cc[$key];
+            }
+            if(array_key_exists($key,$aa)){
+             $caracterizacion->dimension_A=$aa[$key];
+            }
+            if(array_key_exists($key,$nnrr)){
+             $caracterizacion->dimension_NR=$nnrr[$key];
+            }
              $caracterizacion->save();
         };
-        //return redirect()->route('caract.index')->with('verde','Se actualizó correctamente');
+        return redirect()->route('caract.index')->with('verde','Se actualizó correctamente');
         //return $request->all();
 
     }

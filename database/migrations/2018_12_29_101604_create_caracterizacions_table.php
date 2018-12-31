@@ -17,12 +17,12 @@ class CreateCaracterizacionsTable extends Migration
             $table->increments('id');
             $table->integer('activo_id')->unsigned();
             $table->integer('amenaza_id')->unsigned();
-            $table->integer('probabilidad')->default(0);
-            $table->float('dimension_D')->default(0);
-            $table->float('dimension_I')->default(0);
-            $table->float('dimension_C')->default(0);
-            $table->float('dimension_A')->default(0);
-            $table->float('dimension_NR')->default(0);
+            $table->integer('probabilidad')->default(0)->nullable();
+            $table->float('dimension_D')->default(0)->nullable();
+            $table->float('dimension_I')->default(0)->nullable();
+            $table->float('dimension_C')->default(0)->nullable();
+            $table->float('dimension_A')->default(0)->nullable();
+            $table->float('dimension_NR')->default(0)->nullable();
             $table->foreign('activo_id')->references('id')->on('activos')->onDelete('cascade');
             $table->foreign('amenaza_id')->references('id')->on('amenazas')->onDelete('cascade');
             $table->timestamps();
