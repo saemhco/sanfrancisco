@@ -1,5 +1,5 @@
 @extends('plantilla.usuario')
-@section('titulo','Seguimiento')
+@section('titulo','Amenazas')
 
 @section('estilos')  
 {!!Html::style('plantilla/css/select2.min.css')!!}

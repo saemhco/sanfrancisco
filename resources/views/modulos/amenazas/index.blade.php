@@ -47,7 +47,6 @@
 				<tbody>
 					@foreach($amenazas as $k)
 					<tr >
-						
 						<td align="center">{{$array_amenazas[$k->tipo]}}</td>
 						<td align="center">{{$k->codigo}}</td>
 						<td>{{$k->nombre}}</td>

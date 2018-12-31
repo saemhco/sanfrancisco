@@ -94,7 +94,7 @@ function promedio($id){
       <td>{{ promedio($c->id)['NR'].'%' }}</td>
       <td>
 		<a href="#" title="Ver detalles" onclick="vermas({{$c->id}});"><i class="ace-icon fa fa-plus acciones"></i></a>
-		<a href="#" title="editar"><i class="ace-icon fa fa-edit acciones"></i></a>
+		<a href="{{ route('caract.edit',$c->id) }}" title="editar"><i class="ace-icon fa fa-edit acciones"></i></a>
 		<a href="#" title="Eliminar" class="accion-delete" data-id='4'><i class="ace-icon fa fa-trash acciones"></i></a>
 	 </td>
     </tr>

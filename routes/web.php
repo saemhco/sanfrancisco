@@ -73,8 +73,8 @@ Route::group(['prefix' => 'caracterizacion'],function(){
 		
 		Route::get('nuevo','modulos\activo\activoController@create')->name('act.reg.new');
 		Route::post('store','modulos\activo\activoController@store')->name('act.reg.store');
-		Route::get('edit/{id}','modulos\activo\activoController@edit')->name('act.reg.edit');
-		Route::put('update/{id}','modulos\activo\activoController@update')->name('act.reg.update');
+		Route::get('edit/{id}','modulos\caracterizacion\caracterizacionController@edit')->name('caract.edit');
+		Route::put('update/{id}','modulos\caracterizacion\caracterizacionController@update')->name('caract.update');
 		Route::delete('delete/{id}','modulos\activo\activoController@destroy')->name('act.reg.delete');
 });
 

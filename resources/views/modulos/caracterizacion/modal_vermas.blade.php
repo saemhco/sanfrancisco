@@ -58,11 +58,11 @@
 				</table>
 
 			</div>
-			<div class="modal-footer">
+			{{-- <div class="modal-footer">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
-			</div>
+			</div> --}}
 			
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
