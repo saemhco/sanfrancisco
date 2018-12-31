@@ -7,7 +7,8 @@
 @section('ruta')
 <ul class="breadcrumb">
 	<i class="ace-icon fa fa-leaf"></i>
-	<li class="active"><a href="{{ route('caract.index') }}">Caracterización</a></li>
+	<li class="active">Mapa de Riezgos</li>
+	<li class=""><a href="{{ route('caract.index') }}">Amenazas</a></li>
 	<li class="">editar</li>
 </ul>
 @endsection
