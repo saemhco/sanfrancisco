@@ -84,7 +84,7 @@ class amenazaController extends Controller
         $input = $request->all();
         $amenaza->fill($input)->save();
 
-        return redirect()->route('ame.index');
+        return redirect()->route('ame.index')->with('verde','Se actualizó correctamente');
     }
 
     /**
