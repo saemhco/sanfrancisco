@@ -60,47 +60,47 @@ function promedio($id){
 			
 		</div>
 		<div class="table-responsive">
-<table  border="2" width="100%" id="dynamic-table" class="table table-striped table-bordered table-hover table-condensed">
-  <thead >
-    <tr  align="center" valign="middle">
-      <th rowspan="2"  class="center">Categoría</th>
-      <th rowspan="2"  class="center">N°</th>
-      <th rowspan="2"  class="center">Código</th>
-      <th rowspan="2"  class="center">Activo</th>
-      <th rowspan="2"  class="center">Probabilidad</th>
-      <th colspan="5"  class="center">Dimenciones</th>
-      <th rowspan="2"  class="center">Acciones</th>
-    </tr>
-    <tr>
-    	<th  class="center">[D]</th>
-    	<th  class="center">[I]</th>
-    	<th  class="center">[C]</th>
-    	<th  class="center">[A]</th>
-    	<th  class="center">[N_R]</th>
-    </tr>
-  </thead>
-  <tbody>
-  	@foreach ($activos as $c)
-    <tr class="center">
-      <td>{{ $c->capa->categoria }}</td>
-      <td>{{ $c->n}}</td>
-      <td>{{ $c->codigo}}</td>
-      <td>{{ $c->nombre}}</td>
-      <td>{{ promedio($c->id)['probabilidad'] }}</td>
-      <td>{{ promedio($c->id)['D'].'%' }}</td>
-      <td>{{ promedio($c->id)['I'].'%' }}</td>
-      <td>{{ promedio($c->id)['I'].'%' }}</td>
-      <td>{{ promedio($c->id)['A'].'%' }}</td>
-      <td>{{ promedio($c->id)['NR'].'%' }}</td>
-      <td>
-		<a href="#" title="Ver detalles" onclick="vermas({{$c->id}});"><i class="ace-icon fa fa-plus acciones"></i></a>
-		<a href="#" title="editar"><i class="ace-icon fa fa-edit acciones"></i></a>
-		<a href="#" title="Eliminar" class="accion-delete" data-id='4'><i class="ace-icon fa fa-trash acciones"></i></a>
-	 </td>
-    </tr>
-  	@endforeach
-  </tbody>
-</table>
+			<table  border="2" width="100%" id="dynamic-table" class="table table-striped table-bordered table-hover table-condensed">
+			<thead >
+				<tr  align="center" valign="middle">
+				<th rowspan="2"  class="center">Categoría</th>
+				<th rowspan="2"  class="center">N°</th>
+				<th rowspan="2"  class="center">Código</th>
+				<th rowspan="2"  class="center">Activo</th>
+				<th rowspan="2"  class="center">Probabilidad</th>
+				<th colspan="5"  class="center">Dimenciones</th>
+				<th rowspan="2"  class="center">Acciones</th>
+				</tr>
+				<tr>
+					<th  class="center">[D]</th>
+					<th  class="center">[I]</th>
+					<th  class="center">[C]</th>
+					<th  class="center">[A]</th>
+					<th  class="center">[N_R]</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach ($activos as $c)
+				<tr class="center">
+				<td>{{ $c->capa->categoria }}</td>
+				<td>{{ $c->n}}</td>
+				<td>{{ $c->codigo}}</td>
+				<td>{{ $c->nombre}}</td>
+				<td>{{ promedio($c->id)['probabilidad'] }}</td>
+				<td>{{ promedio($c->id)['D'].'%' }}</td>
+				<td>{{ promedio($c->id)['I'].'%' }}</td>
+				<td>{{ promedio($c->id)['I'].'%' }}</td>
+				<td>{{ promedio($c->id)['A'].'%' }}</td>
+				<td>{{ promedio($c->id)['NR'].'%' }}</td>
+				<td>
+					<a href="#" title="Ver detalles" onclick="vermas({{$c->id}});"><i class="ace-icon fa fa-plus acciones"></i></a>
+					<a href="#" title="editar"><i class="ace-icon fa fa-edit acciones"></i></a>
+					<a href="#" title="Eliminar" class="accion-delete" data-id='4'><i class="ace-icon fa fa-trash acciones"></i></a>
+				</td>
+				</tr>
+				@endforeach
+			</tbody>
+			</table>
 		</div>
 </div>
 
@@ -113,6 +113,11 @@ function promedio($id){
 		<!-- page specific plugin scripts -->
 		{!!Html::script('/plantilla/js/jquery.dataTables.min.js')!!}
 		{!!Html::script('/plantilla/js/jquery.dataTables.bootstrap.min.js')!!}
+		{!!Html::script('/plantilla/js/dataTables.buttons.min.js')!!}
+		{!!Html::script('/plantilla/js/buttons.flash.min.js')!!}
+		{!!Html::script('/plantilla/js/buttons.html5.min.js')!!}
+		{!!Html::script('/plantilla/js/buttons.print.min.js')!!}
+		{!!Html::script('/plantilla/js/buttons.colVis.min.js')!!}
 
 		<script type="text/javascript">
 			var myTable=$('#dynamic-table').DataTable( {     

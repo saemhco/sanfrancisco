@@ -254,6 +254,11 @@ function promedio($id){
 		<!-- page specific plugin scripts -->
 		{!!Html::script('/plantilla/js/jquery.dataTables.min.js')!!}
 		{!!Html::script('/plantilla/js/jquery.dataTables.bootstrap.min.js')!!}
+		{!!Html::script('/plantilla/js/dataTables.buttons.min.js')!!}
+		{!!Html::script('/plantilla/js/buttons.flash.min.js')!!}
+		{!!Html::script('/plantilla/js/buttons.html5.min.js')!!}
+		{!!Html::script('/plantilla/js/buttons.print.min.js')!!}
+		{!!Html::script('/plantilla/js/buttons.colVis.min.js')!!}
 
 		<script type="text/javascript">
 			var myTable=$('#dynamic-table').DataTable( {     
