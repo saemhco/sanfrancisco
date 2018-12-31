@@ -76,4 +76,9 @@ Route::group(['prefix' => 'caracterizacion'],function(){
 		Route::delete('delete/{id}','modulos\activo\activoController@destroy')->name('act.reg.delete');
 });
 
+Route::group(['prefix' => 'riesgos'],function(){
+	Route::get('/','modulos\riesgo\riesgoController@index')->name('riesgo.index');
+
+});
+
 
