@@ -31,7 +31,7 @@ class caracterizacionController extends Controller
         $activos=Activo::pluck('nombre','id');
         $amenazas=Amenaza::all();
         $array_amenazas=$this->amenazas();
-        return view('modulos.caracterizacion.nuevo', compact('activos','promedio','amenazas','array_amenazas'));
+        return view('modulos.caracterizacion.nuevo', compact('activos','amenazas','array_amenazas'));
     }
 
     /**
@@ -113,7 +113,7 @@ class caracterizacionController extends Controller
         $amenazas=Amenaza::all();
         $caracterizacion=Caracterizacion::find($id);
         $array_amenazas=$this->amenazas();
-        return view('modulos.caracterizacion.editar', compact('caracterizacion','activo','promedio','amenazas','array_amenazas'));
+        return view('modulos.caracterizacion.editar', compact('caracterizacion','activo','amenazas','array_amenazas'));
     }
 
     /**
