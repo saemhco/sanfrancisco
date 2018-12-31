@@ -64,5 +64,14 @@ Route::group(['prefix' => 'amenazas'],function(){
 	Route::put('update/{id}','modulos\amenaza\amenazaController@update')->name('ame.update');});
 	Route::delete('delete/{id}','modulos\amenaza\amenazaController@destroy')->name('rsu2.mp.delete');
 
+Route::group(['prefix' => 'caracterizacion'],function(){
+		Route::get('/','modulos\caracterizacion\caracterizacionController@index')->name('caract.index');
+		Route::get('nuevo','modulos\activo\activoController@create')->name('act.reg.new');
+		Route::post('store','modulos\activo\activoController@store')->name('act.reg.store');
+		Route::get('edit/{id}','modulos\activo\activoController@edit')->name('act.reg.edit');
+		Route::put('update/{id}','modulos\activo\activoController@update')->name('act.reg.update');
+		Route::delete('delete/{id}','modulos\activo\activoController@destroy')->name('act.reg.delete');
+});
+
 
 
