@@ -27,7 +27,11 @@ class caracterizacionController extends Controller
      */
     public function create()
     {
-        //
+         
+        $activos=Activo::pluck('nombre','id');
+        $amenazas=Amenaza::all();
+        $array_amenazas=$this->amenazas();
+        return view('modulos.caracterizacion.nuevo', compact('activos','promedio','amenazas','array_amenazas'));
     }
 
     /**
@@ -38,7 +42,48 @@ class caracterizacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $p= array_filter($request->get('probabilidad'),'strlen');
+        $d= array_filter($request->get('D'),'strlen');
+        $i= array_filter($request->get('I'),'strlen');
+        $c= array_filter($request->get('C'),'strlen');
+        $a= array_filter($request->get('A'),'strlen');
+        $nr= array_filter($request->get('NR'),'strlen');
+        
+        foreach ($p as $key => $value) {$pp[]=$value;}
+        foreach ($d as $key => $value) {$dd[]=$value;}
+        foreach ($i as $key => $value) {$ii[]=$value;}
+        foreach ($c as $key => $value) {$cc[]=$value;}
+        foreach ($a as $key => $value) {$aa[]=$value;}
+        foreach ($nr as $key => $value) {$nnrr[]=$value;}
+        $pp[]=null;$dd[]=null;$ii[]=null;$cc[]=null;$aa[]=null;$nnrr[]=null;
+        
+        
+        
+        //Registramos nuevo
+        foreach ($request->get('amenazas') as $key=> $value) {
+             $caracterizacion=new Caracterizacion;
+             $caracterizacion->amenaza_id=$value;
+             $caracterizacion->activo_id=$request->get('activo_id');
+             if(array_key_exists($key,$pp)){
+                 $caracterizacion->probabilidad=$pp[$key];
+             }
+             $caracterizacion->dimension_D=$dd[$key];
+            if(array_key_exists($key,$ii)){
+                $caracterizacion->dimension_I=$ii[$key];
+            }
+            if(array_key_exists($key,$cc)){
+             $caracterizacion->dimension_C=$cc[$key];
+            }
+            if(array_key_exists($key,$aa)){
+             $caracterizacion->dimension_A=$aa[$key];
+            }
+            if(array_key_exists($key,$nnrr)){
+             $caracterizacion->dimension_NR=$nnrr[$key];
+            }
+             $caracterizacion->save();
+        };
+        return redirect()->route('caract.index')->with('verde','Se registró correctamente');
+        //return $request->all();
     }
 
     /**
@@ -52,7 +97,6 @@ class caracterizacionController extends Controller
         $caracterizacion=Caracterizacion::where('activo_id',$id)->get();
         $activo=Activo::find($id);
         $promedio=$this->promedio($id);
-
         return view('modulos.caracterizacion.modal_vermas', compact('caracterizacion','activo','promedio'));
     }
 
@@ -94,7 +138,7 @@ class caracterizacionController extends Controller
         foreach ($c as $key => $value) {$cc[]=$value;}
         foreach ($a as $key => $value) {$aa[]=$value;}
         foreach ($nr as $key => $value) {$nnrr[]=$value;}
-        
+        $pp[]=null;$dd[]=null;$ii[]=null;$cc[]=null;$aa[]=null;$nnrr[]=null;
         
         //Eliminamos (solo en editar)
         $px_eliminar=Caracterizacion::where('activo_id',$id)->get();

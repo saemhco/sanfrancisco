@@ -20,7 +20,7 @@
 		<div class="form-group">
 			<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Activo </label>
 			<div class="col-sm-9">
-				{!!Form::select('activo',$activos,['class'=> 'col-xs-10 col-sm-10 col-sm-5', 'disabled'=>'false', 'id'=>'select2-id','required'])!!}
+				{!!Form::select('activo_id',$activos,['class'=> 'col-xs-10 col-sm-10 col-sm-5', 'disabled'=>'false', 'id'=>'select2-id','required'])!!}
 			</div>
 		</div>
 		<table id="dynamic-table" class="table table-striped table-bordered table-hover table-condensed">
