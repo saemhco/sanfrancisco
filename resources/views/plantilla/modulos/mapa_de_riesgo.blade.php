@@ -1,7 +1,8 @@
 
 						<li class="">
-							<a href="#" class="dropdown-toggle" title="Responsabilidad Social Universitaria">
-								<i class="menu-icon fa fa-bar-chart" ></i>
+							<a href="{{ route('riesgo.index') }}">
+								<i class="menu-icon fa fa-close" ></i>
 								<span class="menu-text"> Mapa de riesgos </span>
-							</a>							
+							</a> 
+												
 						</li>
