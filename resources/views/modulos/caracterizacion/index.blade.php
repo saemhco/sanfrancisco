@@ -60,6 +60,7 @@ function promedio($id){
 			
 		</div>
 		<div class="table-responsive">
+
 <table  border="2" width="100%" id="dynamic-table" class="table table-striped table-bordered table-hover table-condensed">
   <thead >
     <tr  align="center" valign="middle">
@@ -101,6 +102,7 @@ function promedio($id){
   	@endforeach
   </tbody>
 </table>
+
 		</div>
 </div>
 
@@ -113,6 +115,11 @@ function promedio($id){
 		<!-- page specific plugin scripts -->
 		{!!Html::script('/plantilla/js/jquery.dataTables.min.js')!!}
 		{!!Html::script('/plantilla/js/jquery.dataTables.bootstrap.min.js')!!}
+		{!!Html::script('/plantilla/js/dataTables.buttons.min.js')!!}
+		{!!Html::script('/plantilla/js/buttons.flash.min.js')!!}
+		{!!Html::script('/plantilla/js/buttons.html5.min.js')!!}
+		{!!Html::script('/plantilla/js/buttons.print.min.js')!!}
+		{!!Html::script('/plantilla/js/buttons.colVis.min.js')!!}
 
 		<script type="text/javascript">
 			var myTable=$('#dynamic-table').DataTable( {     
